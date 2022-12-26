@@ -13,6 +13,7 @@ html {
   --title-text-color: #212121;
   --secondary-bcg-color: #2f303a;
   --button-order-active: #188ce8;
+  --button-primary-shadow: rgba(0, 0, 0, 0.15);
   --tertiary-bcg-color: #f5f4fa;
   --icon-text: #afb1b8;
   --border-color: #ececec;
@@ -274,6 +275,7 @@ img {
 .button.primary:focus {
   background-color: var(--button-order-active);
   transition: background-color 250ms var(--transition-time-function);
+  box-shadow: 0px 4px 4px var(--button-primary-shadow);
 }
 
 /* Features */
@@ -601,13 +603,21 @@ img {
 }
 
 .button.send-button {
+  display: flex;
+  gap: 10px;
   width: 200px;
   height: 50px;
+  justify-content: space-evenly;
+  align-items: center;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
   letter-spacing: 0.06em;
   color: var(--secondary-text-color);
+}
+
+.send-icon {
+  fill: var(--secondary-text-color);
 }
 
 /* Page Portfolio */
@@ -757,7 +767,6 @@ img {
   opacity: 1;
   transition: opacity 250ms var(--transition-time-function);
   transition: transform 250ms var(--transition-time-function);
-  overflow-y: auto;
 }
 
 .backdrop.is-hidden {
@@ -791,6 +800,7 @@ img {
 .modal-btn:focus {
   fill: var(--accent-color);
   cursor: pointer;
+  transition: transform 250ms var(--transition-time-function);
 }
 
 .modal-text {
@@ -834,10 +844,12 @@ img {
 .form-input:focus {
   border-color: var(--accent-color);
   cursor: pointer;
+  transition: transform 250ms var(--transition-time-function);
 }
 
 .form-input:focus + .form-icon {
   fill: var(--accent-color);
+  transition: transform 250ms var(--transition-time-function);
 }
 .form-icon {
   position: absolute;
@@ -869,10 +881,52 @@ img {
 .form-textarea:focus {
   border-color: var(--accent-color);
   cursor: pointer;
+  transition: transform 250ms var(--transition-time-function);
 }
 
-.form-checkbox {
+.form__check {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 425px;
+}
+
+.check {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: inherit;
+  color: var(--primary-text-color);
+}
+
+.check__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.check__icon {
+  border: 2px solid var(--title-text-color);
+  border-radius: 4px;
+  fill: transparent;
+}
+
+.check__link {
+  color: var(--accent-color);
+  padding-bottom: 1px;
+  line-height: 1.17px;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.check__input:checked + .check__icon {
+  fill: var(--secondary-text-color);
+  border: transparent;
+  background-color: var(--accent-color);
+  transition: transform 250ms var(--transition-time-function);
 }
 
 .button.primary.form-submit {
